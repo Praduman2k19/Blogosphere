@@ -1,0 +1,34 @@
+<div class="row mt-5" *ngIf="loggedIn">
+    <div class="col">
+        <textarea class="form-control" name="" rows="2" cols="30" placeholder="Your comment here..." [(ngModel)]="comment"></textarea>
+    </div>
+</div>
+
+<div class="row" *ngIf="loggedIn">
+    <div class="col">
+        <div class="pull-right mt-1">
+            <button type="submit" class="btn btn-primary" (click)="postComment()">Post</button>
+        </div>
+    </div>
+</div>
+<div class="alert alert-primary" *ngIf="!loggedIn" role="alert">
+    Please login to post a comment 
+</div>
+<h4>Comments ({{comments.length}})</h4>
+
+<div class="row mt-3 mb-5">
+    <div class="col ">
+        <div class="  form-control pb-3 mt-3" *ngFor="let comment of comments">
+            <div class="text">
+                {{comment.text}}
+            </div>
+            <div class="">
+                <div class="pull-right text-muted">
+                    <a class="text-muted" [routerLink]="'/profile/'+comment.owner">{{comment.ownerName}}</a>,
+                    <i>Commented on : </i>{{comment.created.toDate()|date: 'MMM dd,yyyy, h:mm:a'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

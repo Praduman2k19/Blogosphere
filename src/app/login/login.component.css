@@ -1,0 +1,8 @@
+.btn[type=submit]{
+    padding-inline: 40px;
+    border-radius: 50px;
+    /* outline: 12px solid rgb(212, 22, 22); */
+}
+.btn-link{
+    color:white;
+}

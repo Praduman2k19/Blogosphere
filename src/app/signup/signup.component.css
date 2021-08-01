@@ -1,0 +1,10 @@
+/* 
+*{
+    padding: 0;
+    margin: 0;
+} */
+
+.btn[type=submit]{
+    border-radius: 50px;
+}
+

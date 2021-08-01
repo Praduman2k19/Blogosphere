@@ -1,0 +1,39 @@
+
+<div class="container bg-light">
+    <div class="text-center col-sm-12">
+        <div class=" py-4">
+            <div class="card-title text-center">
+                <h5 class="text-center"><b>Login</b></h5>
+            </div>
+            <div class="card-text">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                    <div class="my-2 mt-4">
+                        <input [formControl]="$any(myForm.controls['email'])" class="form-control" name="email" placeholder="Email">
+                    </div>
+                    <div *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].touched" class="alert alert-danger">
+                        Enter a valid email.
+                    </div>
+                    <div class="my-2">
+                        <input  [formControl]="$any(myForm.controls['password'])" class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                    <div *ngIf="myForm.controls['password'].invalid && myForm.controls['password'].touched" class="alert alert-danger">
+                        Password should be atleast 8 charactor
+                    </div>
+                    <div class="text-center mt-3 my-2">
+                        <button [disabled]="myForm.invalid" class="btn btn-success"  type="submit">Login</button>
+                    </div>
+                </form>
+    
+                <!-- <div class="text-center mt-3 ">
+                    <button class="text-dark btn btn-link" [routerLink]="['/signup']" type="submit"><small>Don't have an account? Create One</small> </button>
+                </div> -->
+                <div *ngIf="message.length>0" class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+                <div *ngIf="userError" class="alert alert-success" role="alert">
+                  {{userError.message}}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.btn-outline-light{
+    border-radius: 50px;
+}
+nav{
+    border-bottom: 1px solid #496ea8;
+    background: #191831ec;
+}
+.nav-item .modal{
+    margin-top: 100px; 
+}
+
+@media screen and (max-width: 400px){
+    .nav-item .modal{
+        margin-top: 200px; 
+    }
+}
