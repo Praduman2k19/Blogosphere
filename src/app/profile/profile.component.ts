@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.currentId=firebase.auth().currentUser?.uid;
-    console.log(this.currentId);
+    // console.log(this.currentId);
   }
 
   
