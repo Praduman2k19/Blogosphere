@@ -53,7 +53,7 @@
                         <a  class="nav-link" [routerLink]="['/profile/'+id]" >My Profile</a>
                     </li>
                     <li class="nav-item right mx-2" *ngIf="loggedIn">
-                        <a  class="nav-link" [routerLink]="['/']" (click)="logout()">Log out</a>
+                        <a  class="nav-link" [routerLink]="['']" (click)="logout()">Log out</a>
                     </li>
                 </ul>
             </div>

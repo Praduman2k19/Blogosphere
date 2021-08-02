@@ -10,7 +10,7 @@ import { ViewComponent } from './view/view.component';
 
 const routes:Routes=[
   {
-    path: '' ,   component :HomeComponent
+    path: '' , component :HomeComponent
   },
   {
     path: 'myblogs', component :BlogsComponent,
@@ -33,15 +33,14 @@ const routes:Routes=[
     canActivate: [AuthGuard]
   },
   {
-    path: '**', redirectTo:'/'
+    path: '**', redirectTo:''
   }
-]
+];
 
 @NgModule({
   
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  
-  declarations: []
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
