@@ -1,7 +1,5 @@
 
-<<<<<<< HEAD
-# Live Preview : <https://practical-shannon-f52020.netlify.app/>
-=======
+
 ## Live Preview : https://blogosphere.netlify.app/
 >>>>>>> 5e1d69442bf620afcba51ffdaf95dfd6fee458ba
 
