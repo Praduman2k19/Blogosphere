@@ -15,7 +15,7 @@ export class MyblogsComponent implements OnInit {
   userId:any;
   photoUrl:any;
   data:any
-  constructor() { 
+  constructor() {
     // firebase.firestore().settings({
     //   timestampsInsnapshots:true
     // });
@@ -37,7 +37,7 @@ export class MyblogsComponent implements OnInit {
     firebase.firestore().collection("posts")
     .orderBy("createed","desc")
     .get().then((querySnapshot)=>{
-      // console.log(querySnapshot.docs);
+      console.log(querySnapshot.docs);
       this.posts=querySnapshot.docs;
     }).catch((err)=>{
       console.log(err);
@@ -45,7 +45,7 @@ export class MyblogsComponent implements OnInit {
   }
   onPostCreated()
   {
-    //refresh the list of posts 
+    //refresh the list of posts
     this.posts=[];
     this.getPost();
   }
@@ -55,6 +55,6 @@ export class MyblogsComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  
+
 
 }

@@ -13,12 +13,12 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(){}
   id:any;
-  loggedIn:any=true;
+  loggedIn:any=false;
 
-  constructor()
+  constructor(public router:Router)
   {
     const user=firebase.auth().currentUser;
-    
+
     if(user){
       this.loggedIn=true;
       console.log(user+"kj")
@@ -36,7 +36,13 @@ export class MenuComponent implements OnInit {
         this.loggedIn=false;
       }
    })
+
+   if(localStorage.getItem('auth_token')=='true')
+    this.loggedIn=true;
+   else
+    this.loggedIn=false;
  }
+
 
  loginSignup:boolean=true;
  loginSignupchanged()
@@ -47,6 +53,8 @@ export class MenuComponent implements OnInit {
   logout()
   {
     firebase.auth().signOut();
+    localStorage.removeItem('auth_token')
+    this.router.navigateByUrl('')
   }
 
 }

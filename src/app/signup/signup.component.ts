@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   message:string="";
   userError:any;
 
-constructor( public fb:FormBuilder ,public authService:AuthService) 
+constructor( public fb:FormBuilder ,public authService:AuthService)
 {
   this.myForm=this.fb.group({
     firstName:['',[Validators.required]],
@@ -28,7 +28,7 @@ constructor( public fb:FormBuilder ,public authService:AuthService)
   })
 }
 
- 
+
 
 
 onSubmit(signupform:any)
@@ -39,7 +39,7 @@ onSubmit(signupform:any)
     let password:string=signupform.value.password;
 
     this.authService.signup(email,password,firstName,lastName).then((user:any)=>{
-      
+
       firebase.firestore().collection("users").doc(user.uid).set({
         firstName:signupform.value.firstName,
         lastName:signupform.value.lastName,
@@ -49,7 +49,7 @@ onSubmit(signupform:any)
         interests:"",
         bio:"",
         hobbies:""
-        
+
       }).then(()=>{
         this.userError=null;
         this.message="You have been signed up successfully. Please login"
@@ -59,7 +59,7 @@ onSubmit(signupform:any)
         this.message="";
         this.userError=error;
       })
-  
+
   }
 
 

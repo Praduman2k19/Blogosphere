@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import {  NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Blogosphere';
+
+  constructor(public ngxSpinnerService:NgxSpinnerService)
+  {}
+
+  ngOnInit(): void {
+    // this.ngxSpinnerService.show()
+
+  }
+
 }

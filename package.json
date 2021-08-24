@@ -24,6 +24,7 @@
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^6.2.0",
     "ngx-editor": "^10.1.0",
+    "ngx-spinner": "^12.0.0",
     "rxjs": "~6.6.0",
     "service": "^0.1.4",
     "stream": "0.0.2",

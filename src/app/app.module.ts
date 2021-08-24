@@ -5,6 +5,8 @@ import  firebase from "firebase/app";
 import { NgxEditorModule } from 'ngx-editor';
 import 'firebase/auth';
 import { HttpClientModule } from '@angular/common/http'
+import { NgxSpinnerModule } from "ngx-spinner";
+// import {  NgxSpinnerService } from 'ngx-spinner';
 
 
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 var config = {
   apiKey: "AIzaSyADrC3zLxNbgw1TSp-KfXMrb8qS0wE9ujY",
   authDomain: "scribeapp-80421.firebaseapp.com",
@@ -52,15 +55,18 @@ firebase.initializeApp(config);
     CommentsComponent,
     EditProfileComponent,
     FooterComponent,
-    BlogsComponent
+    BlogsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule, 
-    AppRoutingModule, 
-    NgxEditorModule, 
-    HttpClientModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    NgxEditorModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    // NgxSpinnerService
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

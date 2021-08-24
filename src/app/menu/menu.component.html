@@ -6,21 +6,21 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-            
-        
+
+
         <div id="navbarSupportedContent" class="collapse navbar-collapse ">
             <ul class="navbar-nav me-auto mb-2  mb-lg-0">
                 <li class=" nav-item mx-2" routerLinkActive="active" data-toggle="collapse" data-target="navbar-collapse">
                     <a class="nav-link" [routerLink]="['']">Home</a>
                 </li>
                 <li class="nav-item mx-2" routerLinkActive="active" data-toggle="collapse" data-target="navbar-collapse" *ngIf="loggedIn">
-                    <a class="nav-link" [routerLink]="['/blogs']">Blogs</a>
+                    <a class="nav-link" [routerLink]="['blogs']">Blogs</a>
                 </li>
                 <li class="nav-item mx-2" routerLinkActive="active" data-toggle="collapse" data-target="navbar-collapse" *ngIf="loggedIn">
-                    <a class="nav-link" [routerLink]="['/myblogs']">My Blogs</a>
+                    <a class="nav-link" [routerLink]="['myblogs']">My Blogs</a>
                 </li>
             </ul>
-    
+
             <div>
                 <ul class=" navbar-nav ml-auto right">
                     <li class="nav-item d-flex " routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="!loggedIn">
@@ -29,9 +29,12 @@
                             login
                           </button>
                           <!-- Modal -->
-                          <div class="modal fade  "id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog ">
                               <div class="modal-content">
+                                <div class="modal-header bg-light" style="border-bottom: none;">
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
                                 <div *ngIf="!loginSignup" class="bg-light  p-2" style="border-radius: 5px;">
                                     <app-signup></app-signup>
                                     <div class="text-center mb-3 ">
@@ -47,17 +50,16 @@
                               </div>
                             </div>
                           </div>
-                          
                     </li>
                     <li class="nav-item  right mx-2" *ngIf="loggedIn">
-                        <a  class="nav-link" [routerLink]="['/profile/'+id]" >My Profile</a>
+                        <a  class="nav-link" [routerLink]="['profile/'+id]" >My Profile</a>
                     </li>
                     <li class="nav-item right mx-2" *ngIf="loggedIn">
                         <a  class="nav-link" [routerLink]="['']" (click)="logout()">Log out</a>
                     </li>
                 </ul>
             </div>
-            
+
         </div>
     </div>
 

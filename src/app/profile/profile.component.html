@@ -13,7 +13,7 @@
                                 <div class="col-sm-4 text-center mt-1 img-circle"style="min-width: 285px;">
                                     <img [src]="user.photoURL" alt="" class="img-circle" height="256" width="256" >
                                 </div>
-        
+
                                 <div class="col-sm-8 mt-1">
                                     <h1>{{user.firstName + " " + user.lastName}}</h1>
                                     <h4>{{user.email}}</h4>
@@ -22,8 +22,8 @@
                                     <span *ngFor="let hobby of user.hobbies" class="badge  bg-primary badge-light m-1" >
                                         {{ hobby }}
                                     </span><br>
-                                    <button *ngIf="currentId==user.id" class="btn btn-info p-1 my-3" [routerLink]="'/edit-profile/'+user.id"><small>Edit Profile</small></button> 
-                                    
+                                    <button *ngIf="currentId==user.id" class="btn btn-info p-1 my-3" [routerLink]="'/edit-profile/'+user.id"><small>Edit Profile</small></button>
+
                                 </div>
                             </div>
                         </div>
