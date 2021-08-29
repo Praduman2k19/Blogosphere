@@ -14,7 +14,6 @@ const routes:Routes=[
   { path: '' , component :HomeComponent, pathMatch: 'full' },
   { path: 'myblogs', component :BlogsComponent,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'blogs', component : MyblogsComponent ,pathMatch: 'full', canActivate: [AuthGuard] },
-  // { path: '**', component :NotFoundComponent },
   { path: 'profile/:id', component :ProfileComponent,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'edit-profile/:userId', component :EditProfileComponent,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'view/:postId', component :ViewComponent,pathMatch: 'full', canActivate: [AuthGuard] },

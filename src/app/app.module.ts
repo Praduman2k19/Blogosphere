@@ -7,7 +7,9 @@ import 'firebase/auth';
 import { HttpClientModule } from '@angular/common/http'
 import { NgxSpinnerModule } from "ngx-spinner";
 // import {  NgxSpinnerService } from 'ngx-spinner';
-
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +30,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 var config = {
   apiKey: "AIzaSyADrC3zLxNbgw1TSp-KfXMrb8qS0wE9ujY",
   authDomain: "scribeapp-80421.firebaseapp.com",
@@ -66,7 +69,12 @@ firebase.initializeApp(config);
     NgxEditorModule,
     HttpClientModule,
     NgxSpinnerModule,
-    // NgxSpinnerService
+    // NgxSpinnerService,
+    NgHttpLoaderModule.forRoot(),
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
