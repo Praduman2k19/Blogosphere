@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
 
   halfContent:string="";
 
+  constructor(){}
 
   ngOnInit(){
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

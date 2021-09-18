@@ -18,10 +18,10 @@ export class EditProfileComponent implements OnInit {
   userId: any;
 
   route: any;
-  photoUrl: any;
+  photoUrl: string="https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png";
 
   constructor(location: Location, router: Router) {
-    
+
     router.events.subscribe((val) => {
       if(location.path() != ''){
         this.route = location.path();
@@ -44,9 +44,9 @@ export class EditProfileComponent implements OnInit {
       this.message="";
     }).catch((err)=>{
       console.log(err);
-      
+
     })
-    
+
   }
   update(){
     this.message="Updating Profile ...";

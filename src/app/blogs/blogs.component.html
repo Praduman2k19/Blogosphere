@@ -4,17 +4,17 @@
             <div class="col-sm-3 text-center mt-5 " >
                 <img style="border-radius: 1000px; width: 200px; height: 200px;" [src]="photoUrl" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{user.displayName}}</h5>
-                        <a [routerLink]="['/edit-profile/'+user.uid]" class="btn btn-sm btn-primary">Edit Profile</a>
+                        <h5 class="card-title">{{user?.displayName}}</h5>
+                        <a [routerLink]="['/edit-profile/'+user?.uid]" class="btn btn-sm btn-primary">Edit Profile</a>
                     </div>
             </div>
             <div class="col-sm-7 my-5">
-                <h3><b>My Recent Posts({{posts.length}})</b></h3>
+                <h3><b>My Recent Posts({{posts?.length}})</b></h3>
                 <app-post *ngFor="let post of posts" [post]="post" (onDelete)="onDelete()"></app-post>
             </div>
         </div>
     </div>
-    
+
     <footer>
         <app-footer></app-footer>
     </footer>

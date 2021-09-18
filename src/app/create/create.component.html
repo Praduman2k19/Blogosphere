@@ -13,7 +13,7 @@
                     <div class="my-2" style="overflow-x: scroll;">
                         <ngx-editor-menu  [editor]="editor" [toolbar]="toolbar" [spellcheck]="true" ></ngx-editor-menu>
                     </div>
-                    <ngx-editor  [editor]="editor"  [(ngModel)]="content" name="content"[placeholder]="'Type here...'"></ngx-editor>
+                    <ngx-editor  [editor]="editor"  [(ngModel)]="content" name="content"[placeholder]="'Write blog content here...'"></ngx-editor>
                 </div>
                 <div class="form-group pull-right mx-2 ">
                     <button class="btn btn-warning round" [disabled]="title.length<3 || content.length<12" (click)="createPost()" data-bs-dismiss="modal"> Submit</button>

@@ -11,7 +11,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
- 
+
   title:string="";
   content:string="";
   editor:Editor=new Editor;
@@ -29,16 +29,16 @@ export class CreateComponent implements OnInit {
     ["align_left", "align_center", "align_right", "align_justify"]
   ];
 
-  
+
   constructor() {
     this.editorConfig={
       "editable":true
-    } 
+    }
     this.content="";
   }
 
   createPost(){
-    
+
     // firebase.firestore().settings({
     //   timestampsInsnapshots:true
     // });

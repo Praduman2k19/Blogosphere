@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import  firebase from "firebase/app";
-import { NgxEditorModule } from 'ngx-editor';
 import 'firebase/auth';
+import { NgxEditorModule } from 'ngx-editor';
+
 import { HttpClientModule } from '@angular/common/http'
 import { NgxSpinnerModule } from "ngx-spinner";
 // import {  NgxSpinnerService } from 'ngx-spinner';

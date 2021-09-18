@@ -15,8 +15,8 @@ const routes:Routes=[
   { path: 'myblogs', component :BlogsComponent,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'blogs', component : MyblogsComponent ,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'profile/:id', component :ProfileComponent,pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'edit-profile/:userId', component :EditProfileComponent,pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'view/:postId', component :ViewComponent,pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'edit-profile/:id', component :EditProfileComponent,pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'view/:id', component :ViewComponent,pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '**', component :NotFoundComponent }
 ];
 
@@ -27,3 +27,4 @@ const routes:Routes=[
 })
 export class AppRoutingModule { }
 
+// imports: [RouterModule.forRoot(routes,{ relativeLinkResolution: 'legacy' })],

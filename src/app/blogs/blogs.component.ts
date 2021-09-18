@@ -13,29 +13,30 @@ export class BlogsComponent implements OnInit {
   user:any={};
   posts:any[]=[];
   userId:any;
-  photoUrl:any;
+  photoUrl:string="https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png";
   data:any
   constructor() {
-    this.user=firebase.auth().currentUser;
-    firebase.firestore().collection("users").doc(this.user?.uid).get().then((documentSnapshot)=>{
-      this.data=documentSnapshot.data();
-      this.photoUrl=this.data.photoURL;
-      // console.log(this.user);
-      this.getPost();
-    })
+    this.user=firebase.auth()?.currentUser;
+  }
+  ngOnInit(): void {
+    if(this.user)
+    firebase.firestore()?.collection("users")?.doc(this.user?.uid)?.get()?.then((res)=>{
+    this.data=res?.data();
+    this.photoUrl=this.data?.photoURL;
     // console.log(this.user);
-    
+    this.getPost();
+  },err=>{
+    console.log(err)
+  })
+  // console.log(this.user);
   }
   getPost()
   {
     //get the list of posts
-    firebase.firestore().collection("posts")
-    .orderBy("createed","desc")
-    .where("owner","==",this.user.uid)
-    .get().then((querySnapshot)=>{
+    firebase.firestore()?.collection("posts")?.orderBy("createed","desc")?.where("owner","==",this.user?.uid)?.get()?.then((res)=>{
       // console.log(this.user.uid);
-      this.posts=querySnapshot.docs;
-    }).catch((err)=>{
+      this.posts=res?.docs;
+    },err=>{
       console.log(err);
     })
   }
@@ -43,7 +44,6 @@ export class BlogsComponent implements OnInit {
     this.posts=[];
     this.getPost();
   }
-  ngOnInit(): void {
-  }
+
 
 }

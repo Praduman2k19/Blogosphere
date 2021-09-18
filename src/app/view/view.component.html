@@ -3,11 +3,11 @@
         <div class="row pt-5 px-1">
             <div class="col-sm-10 offset-sm-1">
                 <div class="form-control pt-3 pb-5">
-                    <h2 style="font-weight: bold;">{{post.title}}</h2>
-                <div class="card-text" [innerHTML]="post.content"></div>
+                    <h2 style="font-weight: bold;">{{post?.title}}</h2>
+                <div class="card-text" [innerHTML]="post?.content"></div>
                 <div>
                     <div *ngIf="displayName" class="pull-right text-secondary" >
-                        Post by <span style="cursor: pointer;" [routerLink]="'/profile/'+post.owner">{{user.displayName}}</span>
+                        Post by <span style="cursor: pointer;" [routerLink]="'/profile/'+post?.owner">{{user?.displayName}}</span>
                     </div>
                 </div>
                 </div>
