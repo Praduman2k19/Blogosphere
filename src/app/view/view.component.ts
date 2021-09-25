@@ -16,7 +16,7 @@ export class ViewComponent implements OnInit {
   displayName:string=""
 
   constructor(public activatedRoute:ActivatedRoute, public ngZone:NgZone) {
-     this.activatedRoute.params.subscribe(res=>{
+     this.activatedRoute?.params?.subscribe(res=>{
        this.postId=res?.id;
        console.log(res?.id)
      })
@@ -43,7 +43,7 @@ export class ViewComponent implements OnInit {
 
   getUser()
   {
-    firebase.firestore()?.collection("users")?.doc(this.post.owner)?.get()?.then((res)=>{
+    firebase.firestore()?.collection("users")?.doc(this.post?.owner)?.get()?.then((res)=>{
       this.user=res?.data();
       this.displayName=this.user?.firstName+" "+this.user?.lastName;
     },err=>{

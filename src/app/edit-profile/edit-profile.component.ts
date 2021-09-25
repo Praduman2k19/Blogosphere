@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
   photoUrl: string="https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png";
 
   constructor(location: Location, router: Router) {
-
+    // this.userId= localStorage.getItem('auth_token')
     router.events.subscribe((val) => {
       if(location.path() != ''){
         this.route = location.path();
@@ -35,14 +35,14 @@ export class EditProfileComponent implements OnInit {
     // this.userId=firebase.auth().currentUser?.uid;
     // console.log(this.userId +"abc");
     // console.log(firebase.auth().currentUser)
-    firebase.firestore().collection("users").doc(this.userId).get().then((documentSnapshot)=>{
-      this.user=documentSnapshot.data();
-      this.user.displayName=this.user.firstName+" "+this.user.lastName;
-      this.userId=documentSnapshot.id;
-      this.user.photoUrl=this.user.photoURL;
+    firebase.firestore()?.collection("users")?.doc(this.userId)?.get()?.then((res)=>{
+      this.user=res?.data();
+      this.user.displayName=this.user?.firstName+" "+this.user?.lastName;
+      this.userId=res?.id;
+      this.user.photoUrl=this.user?.photoURL;
       console.log(this.user);
       this.message="";
-    }).catch((err)=>{
+    },err=>{
       console.log(err);
 
     })
@@ -51,19 +51,19 @@ export class EditProfileComponent implements OnInit {
   update(){
     this.message="Updating Profile ...";
     firebase.auth().currentUser?.updateProfile({
-      displayName:this.user.displayName,photoURL :this.photoUrl
+      displayName:this.user?.displayName,photoURL :this.photoUrl
     }).then(()=>{
-      firebase.firestore().collection("users").doc(this.userId).update({
-        firstName:this.user.displayName.split(' ')[0],
-        lastName:this.user.displayName.split(' ')[1],
-        hobbies:this.user.hobbies,
-        photoURL:this.user.photoUrl,
-        interests:this.user.interests,
-        bio:this.user.bio
+      firebase.firestore()?.collection("users")?.doc(this.userId)?.update({
+        firstName:this.user?.displayName?.split(' ')[0],
+        lastName:this.user?.displayName?.split(' ')[1],
+        hobbies:this.user?.hobbies,
+        photoURL:this.user?.photoUrl,
+        interests:this.user?.interests,
+        bio:this.user?.bio
       }).then(()=>{
         this.message="Profile updated Successfully.";
         this.getProfile();
-      }).catch((err)=>{
+      },err=>{
         console.log(err);
       })
     })

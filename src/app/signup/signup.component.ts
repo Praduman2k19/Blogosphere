@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import  firebase from "firebase/app";
 import 'firebase/auth';
 import { formatCurrency } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class SignupComponent implements OnInit {
   message:string="";
   userError:any;
 
-constructor( public fb:FormBuilder ,public authService:AuthService)
+constructor( public fb:FormBuilder ,public authService:AuthService,private toastrService:ToastrService)
 {
   this.myForm=this.fb.group({
     firstName:['',[Validators.required]],
@@ -40,12 +41,12 @@ onSubmit(signupform:any)
 
     this.authService.signup(email,password,firstName,lastName).then((user:any)=>{
 
-      firebase.firestore().collection("users").doc(user.uid).set({
-        firstName:signupform.value.firstName,
-        lastName:signupform.value.lastName,
-        email:signupform.value.email,
-        photoURL:user.photoURL,
-        displayName:signupform.value.firstName+" "+signupform.value.lastName,
+      firebase.firestore()?.collection("users")?.doc(user?.uid)?.set({
+        firstName:signupform?.value?.firstName,
+        lastName:signupform?.value?.lastName,
+        email:signupform?.value?.email,
+        photoURL:user?.photoURL,
+        displayName:signupform?.value?.firstName+" "+signupform?.value?.lastName,
         interests:"",
         bio:"",
         hobbies:""
@@ -53,11 +54,14 @@ onSubmit(signupform:any)
       }).then(()=>{
         this.userError=null;
         this.message="You have been signed up successfully. Please login"
+        // this.toastrService.success("Account created successfully.")
+
       })
-      }).catch((error)=>{
-        console.log(error);
+      },err=>{
+        console.log(err);
         this.message="";
-        this.userError=error;
+        this.userError=err;
+        this.toastrService.error(err?.message)
       })
 
   }

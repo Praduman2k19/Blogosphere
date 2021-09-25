@@ -4,18 +4,18 @@
             <div class="col-sm-3 text-center mt-5" >
                     <img style="border-radius: 1000px; width: 200px; height: 200px;" [src]="photoUrl" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{user.displayName}}</h5>
-                        <a [routerLink]="['/edit-profile/'+user.uid]" class="btn btn-sm btn-primary">Edit Profile</a>
+                        <h3 class="card-title">{{data?.displayName}}</h3>
+                        <a [routerLink]="['/edit-profile/'+data?.uid]" class="btn btn-sm btn-primary">Edit Profile</a>
                     </div>
             </div>
-           
+
             <div class="col-sm-7" >
-                
+
                 <div class="row my-5 justify-content-end">
                     <div class="col ">
-                        <h3><b>Recent Posts({{posts.length}})</b></h3>
+                        <h3><b>Recent Posts({{posts?.length}})</b></h3>
                     </div>
-                    
+
                     <div class="col-auto">
                         <div class=""><button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">+ Blog</button></div>
                         <!-- Modal -->
@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer>
         <app-footer></app-footer>
     </footer>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import  firebase from "firebase/app";
 import 'firebase/auth';
 import 'firebase/firestore'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +16,7 @@ export class MenuComponent implements OnInit {
   id:any;
   loggedIn:any=false;
 
-  constructor(public router:Router)
+  constructor(public router:Router,private toastrService:ToastrService)
   {
     const user=firebase.auth().currentUser;
 
@@ -37,7 +38,7 @@ export class MenuComponent implements OnInit {
       }
    })
 
-   if(localStorage.getItem('auth_token')=='true')
+   if(localStorage.getItem('auth_token')!="")
     this.loggedIn=true;
    else
     this.loggedIn=false;
@@ -52,6 +53,7 @@ export class MenuComponent implements OnInit {
 
   logout()
   {
+    this.toastrService.success("You have been logged outtoastrService successfully.")
     firebase.auth().signOut();
     localStorage.removeItem('auth_token')
     this.router.navigateByUrl('')

@@ -9,6 +9,7 @@ import 'firebase/auth';
 })
 export class AuthGuard implements CanActivate {
 
+  user:any;
   constructor( public router:Router) {}
   // canActivate(
   //   next: ActivatedRouteSnapshot,
@@ -29,7 +30,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('auth_token')=='true')
+    if(localStorage.getItem('auth_token')!="")
       return true;
     else{
       this.router.navigateByUrl('login-admin')

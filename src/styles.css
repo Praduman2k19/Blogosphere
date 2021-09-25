@@ -1,8 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/helpers/_variables.scss';
+@import '~ngx-toastr/toastr';
+
+/* @import "~bootstrap/scss/bootstrap"; */
+
 *{
     font-family: 'Raleway', sans-serif;
-   padding: 0;
-   margin: 0;
+    padding: 0;
+    margin: 0;
+
+
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* .toast-container .ngx-toastr{
+  z-index: 500;
+  background-color: $white;
+  // color: $black!important;
+} */
+/* .toast-warning{
+  border-left: 5px solid $toaster-warning;
+  color: $toaster-warning!important;
+}
+.toast-success{
+  border-left: 5px solid $toaster-success;
+  color: $toaster-success!important;
+}
+.toast-error{
+  border-left: 5px solid $toaster-error;
+  color: $toaster-error!important;
+}
+#toast-container>.toast-warning {
+  background-image: url(./assets/toastr-image/warningpng.png)!important;
+  box-shadow: 0 0 3px 0px $toaster-warning !important;
+}
+#toast-container>.toast-success {
+  background-image: url(./assets/toastr-image/success.png)!important;
+  box-shadow: 0 0 3px 0px $toaster-success !important;
+}*/
+/* #toast-container>.toast-error {
+  background-image: url(./assets/toastr-image/error.png)!important;
+  box-shadow: 0 0 3px 0px $toaster-error !important;
+} */

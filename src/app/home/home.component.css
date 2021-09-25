@@ -1,16 +1,19 @@
+/* @import './../../assets/helpers/_variables.scss'; */
+
 .home-top{
     background: rgba(89, 154, 238, 0.664);
+
 }
 .background-left{
     background-image: url('../../assets/book.png');
-    
+
     background-repeat: no-repeat;
     background-size: contain;
     min-height: 300px;
     min-width: 300px;
     /* padding-bottom: 100px; */
     background-position-y: 50px;
-    
+
 }
 .container-fluid .row .left{
     margin-top: 180px;
@@ -32,6 +35,6 @@
         min-height: 360px;
         min-width: 250px;
         /* background-position-y: 50px; */
-        
+
     }
 }

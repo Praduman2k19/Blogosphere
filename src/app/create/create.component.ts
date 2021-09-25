@@ -5,6 +5,7 @@ import  firebase from "firebase/app";
 import '@firebase/firestore';
 import 'firebase/auth';
 import { EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -29,13 +30,14 @@ export class CreateComponent implements OnInit {
     ["align_left", "align_center", "align_right", "align_justify"]
   ];
 
-
-  constructor() {
+  constructor(private tosterService: ToastrService) {
     this.editorConfig={
       "editable":true
     }
     this.content="";
+    // this.tosterService.success("create blog")
   }
+
 
   createPost(){
 
@@ -52,9 +54,11 @@ export class CreateComponent implements OnInit {
         createed:firebase.firestore.FieldValue.serverTimestamp()
       }).then((data)=>{
         this.postCreated.emit();
+        this.tosterService.success("Blog Created Successfully.")
         console.log(data);
-      }).catch((error)=>{
-        console.log(error);
+      },err=>{
+        console.log(err);
+        this.tosterService.error(err)
       })
   }
   }

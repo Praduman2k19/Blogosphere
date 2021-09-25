@@ -13,17 +13,19 @@ export class MyblogsComponent implements OnInit {
   user:any={};
   posts:any[]=[];
   userId:any;
+  uid:any
   photoUrl:string="https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png";
   data:any
   constructor() {
     // firebase.firestore().settings({
     //   timestampsInsnapshots:true
     // });
-    this.user=firebase.auth().currentUser;
-    firebase.firestore().collection("users")?.doc(this.user?.uid)?.get()?.then((res)=>{
+    this.uid=localStorage.getItem('auth_token')
+    console.log(this.uid)
+    firebase.firestore().collection("users")?.doc(this.uid)?.get()?.then((res)=>{
       this.data=res?.data();
       this.photoUrl=this.data?.photoURL;
-      // console.log(this.user);
+      console.log(this.data);
     },err=>{
       console.log(err);
     })

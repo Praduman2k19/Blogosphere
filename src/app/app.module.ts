@@ -4,7 +4,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import  firebase from "firebase/app";
 import 'firebase/auth';
 import { NgxEditorModule } from 'ngx-editor';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 import { NgxSpinnerModule } from "ngx-spinner";
 // import {  NgxSpinnerService } from 'ngx-spinner';
@@ -31,7 +32,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 var config = {
   apiKey: "AIzaSyADrC3zLxNbgw1TSp-KfXMrb8qS0wE9ujY",
   authDomain: "scribeapp-80421.firebaseapp.com",
@@ -75,6 +75,7 @@ firebase.initializeApp(config);
     MatProgressBarModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [AuthService],
