@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
 
   logout()
   {
-    this.toastrService.success("You have been logged outtoastrService successfully.")
+    this.toastrService.success("You have been logged out successfully.")
     firebase.auth().signOut();
     localStorage.removeItem('auth_token')
     this.router.navigateByUrl('')
