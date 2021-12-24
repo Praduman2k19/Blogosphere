@@ -23,9 +23,39 @@
                 <h2 class="mx-2 mt-5">What is Blogosphere?</h2>
                 <h6 class="mx-2 my-1">The blogosphere is made up of all blogs and their interconnections. The term implies that
                      blogs exist together as a connected community (or as a collection of connected communities) or as a social
-                      networking service in which everyday authors can publish their opinions. Since the term has been coined, 
+                      networking service in which everyday authors can publish their opinions. Since the term has been coined,
                       it has been referenced in a number of media and is also used to refer to the internet.<br><br>
-                    Let's get started!!!
+                    Let's get started!!!<br>
+                    <!-- <button class="btn btn-primary">login</button> -->
+
+                    <li class="nav-item d-flex " routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="!loggedIn">
+                      <!-- <button type="submit" class="end-0 btn btn-outline-light bg-success px-5" [routerLink]="['/login']">Login</button> -->
+                      <button type="button" class="btn btn-primary btn-outline-light px-4 py-1 mx-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          login
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog ">
+                            <div class="modal-content">
+                              <div class="modal-header bg-light" style="border-bottom: none;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div *ngIf="!loginSignup" class="bg-light  p-2" style="border-radius: 5px;">
+                                  <app-signup></app-signup>
+                                  <div class="text-center mb-3 ">
+                                      <button class="text-dark btn btn-link"  type="submit" (click)="loginSignupchanged()"><small>Already have Account? Login here</small> </button>
+                                  </div>
+                              </div>
+                              <div *ngIf="loginSignup" class="bg-light p-2" style="border-radius: 5px;">
+                                  <app-login></app-login>
+                                  <div class="text-center mb-3 ">
+                                      <button class="text-dark btn btn-link"  type="submit" (click)="loginSignupchanged()"><small>Don't have an account? Create One</small> </button>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </li>
                 </h6>
             </div>
         </div>
